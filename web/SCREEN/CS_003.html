@@ -1,0 +1,130 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+    <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+    <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+    <!-- calendar stylesheet -->
+    <link rel="stylesheet" type="text/css" media="all" href="../JS/jscalendar/skins/aqua/aqua.css" title="Aua" />
+    <!-- main calendar program -->
+    <script type="text/javascript" src="../JS/jscalendar/calendar.js"></script>
+    <!-- language for the calendar -->
+    <script type='text/javascript' src='../JS/jscalendar/lang/calendar-th.js'></script>
+    <!-- the following script defines the Calendar.setup helper function, which makes
+           adding a calendar a matter of 1 or 2 lines of code. -->
+    <script type="text/javascript" src="../JS/jscalendar/calendar-setup.js"></script>
+    <script type="text/javascript">
+        function chkDocNo(){
+            var chk = document.getElementById("typesub").value;
+            if(chk == "jrxml"){
+                if(document.getElementById("lookup").value == ""){
+                        alert('กรุณาใส่ข้อมูล Lookup');
+                    }else if(document.getElementById("doc_no").value == ""){
+                    alert('กรุณาใส่ข้อมูลเลขที่เอกสาร');
+                    document.getElementById("doc_no").focus();
+                }else if(document.getElementById("effective_date").value == ""){
+                        alert('กรุณาใส่ข้อมูลวันที่บังคับใช้');
+                    }else confirmDialogSave(URLsend('chkNull,sub_menu_id,name_t,remark,main_menu_id,screen_id,doc_no,effective_date,lookup,typesub','../JSP/CS_003.jsp'));
+            }else confirmDialogSave(URLsend('chkNull,sub_menu_id,name_t,remark,main_menu_id,screen_id,doc_no,effective_date,lookup,typesub','../JSP/CS_003.jsp'));
+        }
+    </script>
+    <body onUnload="closepopup()">
+        <table  cellpadding="0"  cellspacing="0">
+            <tr >
+                <td class="ftopleft"></td>
+                <td  class="ftopcenter" colspan="2">เมนูย่อย&nbsp;(CS_003)</td>
+                <td class="ftopright"></td>
+            </tr>
+            <tr >
+                <td class="fcenterleft"></td>
+                <td  colspan="2" class="fcentercenter">
+                    <div align="center">
+                        <table  cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td colspan="2"  class="blankspace"></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel"><b>รหัสเมนูย่อย*</b>&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='sub_menu_id' type='text' id="sub_menu_id" value='' size='10' />
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vmenu_sub',3,'Serch_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input name='name_t' type='text' id="name_t" value='' size='30' />                                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">รหัสเมนูหลัก*&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='main_menu_id' type='text' id="main_menu_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Mainmenu',3,'Serch_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;<input name='main_menu_id_desc' type='text' id="main_menu_id_desc" value='' size='30' readonly/>                </td>
+                            </tr>
+                            <tr>
+                              <td class="columnlabel">รหัสหน้าจอ*&nbsp;</td>
+                              <td class="columnobject"><input name='screen_id' type='text' id="screen_id" value='' size='10' />
+                                &nbsp;<a href='javascript:;' onClick="openBrWindow('Screen',3,'Serch_Config.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                <input type='text' name='screen_id_desc' size='30' value='' id="screen_id_desc" />                              </td>
+                            </tr>
+                            <tr>
+                              <td class="columnlabel">ชนิดหน้าจอ*&nbsp;</td>
+                              <td class="columnobject"><label>
+                                <select name="typesub" size="1" id="typesub" style="width:70">
+                                  <option value="html" selected>html</option>
+                                  <option value="jsp">jsp</option>
+                                  <option value="jrxml">jrxml</option>
+                              </select>
+                              </label></td>
+                            </tr>
+                            <tr>
+                              <td class="columnlabel">Lookup :&nbsp;</td>
+                              <td class="columnobject"><input type="hidden" name="hid" id="hid" value=""/><input type='text' name='lookup' size='30' value='' id="lookup" />
+                              <a href='javascript:;' onClick="openBrWindow('Lookup',3,'Search_Config2.jsp')" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' alt='ค้นหา' name='IMAGE3' width='20' height='20' border='0' align='middle' ></a>(สำหรับหน้าเอกสาร)</td>
+                            </tr>
+                            <tr>
+                              <td class="columnlabel">เลขที่เอกสาร :&nbsp;</td>
+                              <td class="columnobject"><input type='text' name='doc_no' size='30' value='' id="doc_no" />
+                                (สำหรับหน้าเอกสาร)</td>
+                            </tr>
+                            <tr>
+                              <td class="columnlabel">วันที่บังคับใช้&nbsp;</td>
+                              <td class="columnobject"><p>
+                                  <input type='text' name='effective_date' id="effective_date" size='10' value='' readonly/>
+                                &nbsp;<a id='date_1' href="javascript:;"><img name='IMAGE4' src='../IMAGES/BUTTON/MAIN/CALENDAR20.gif' border='0' align='absmiddle'></a>
+                                <script type='text/javascript'>Calendar.setup({inputField:'effective_date',ifFormat:'%d-%m-%Y',showsTime:false,button:'date_1',singleClick:true,step:1});</script>
+                              (สำหรับหน้าเอกสาร)</p></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">หมายเหตุ&nbsp;</td>
+                                <td class="columnobject"><textarea name='remark' cols='40' rows='5' id="remark"></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'>
+                                    <div align="center">
+                                        <input type="hidden" id="chkNull" value="sub_menu_id,name_t,main_menu_id,screen_id">
+                                        <input type="hidden" id="chkstatus" value="1">
+                                        <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="chkDocNo()">&nbsp; <img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0">&nbsp;</a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('sub_menu_id,name_t,remark,chkstatus,doc_no','../JSP/CS_003.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                            </tr>
+                        </table>
+                  </div></td>
+                <td class="fcenterright"></td>
+            </tr>
+            <tr bordercolor="0069B3">
+                <td class="ffootleft"></td>
+                <td  class="ffootcenter" colspan="2"></td>
+                <td class="ffootright"></td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+    </head>
+
+    <body onUnload="closepopup()">
+        <table  cellpadding="0"  cellspacing="0">
+            <tr >
+                <td class="ftopleft"></td>
+                <td  class="ftopcenter" colspan="2">ผู้ใช้งาน&nbsp;(CS_005)</td>
+                <td class="ftopright"></td>
+            </tr>
+            <tr>
+                <td class="fcenterleft"></td>
+                <td  colspan="2" class="fcentercenter">
+                    <div align="center">
+                        <table  cellpadding="0" cellspacing="0" >
+                            <tr>
+                                <td colspan="2"  class="blankspace"></td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel"><b>ผู้ใช้งาน*</b>&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='username' type='text' id="username" value='' size='10' />
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vuser_account',5,'Serch_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">รหัสผ่าน*&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='password' type='password' id="password" value='' size='30' />                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">รหัสพนักงาน*&nbsp;</td>
+                                <td class="columnobject">
+                                    <input name='emp_id' type='text' id="emp_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Vemployee',5,'Serch_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;&nbsp;<input name='name_emp' type='text' id="name_emp" value='' size='30' readonly/>                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">สิทธิ์ใช้งาน*&nbsp;</td>
+                                <td class="columnobject"><input name='priviledge_id' type='text' id="priviledge_id" value='' size='10' readonly/>
+                                    &nbsp;<a href='javascript:;' onClick="openBrWindow('Priviledge',5,'Serch_Config.jsp');" ><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                    <input name='name_priviledge' type='text' id="name_priviledge" value='' size='30' readonly/>                </td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">สถานะ*&nbsp;</td>
+                                <td class="columnobject"><input type="hidden" name="status" id="status">
+                                    <input type="radio" name="radio" id="radio1" value="radio" onClick="getStatus()" checked>
+                                    ปกติ
+                                    <input type="radio" name="radio" id="radio2" value="radio" onClick="getStatus()">
+                                    ระงับการใช้งาน</td>
+                            </tr>
+                            <tr>
+                                <td class="columnlabel">หมายเหตุ&nbsp;</td>
+                                <td class="columnobject"><textarea name='remark' id="remark" rows='5' cols='40'></textarea></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan='2' class='blankspace'></td>
+                            </tr>
+                            <tr>
+                                <td colspan='2' class='blankspace'><div align="center">
+                                        <input type="hidden" id="chkstatus" value="1"/>
+                                        <input type="hidden" id="chkNull" value="username,password,emp_id,priviledge_id">
+                                        <a href="javascript:;" onClick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                        <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,username,password,emp_id,priviledge_id,status,remark', '../JSP/CS_005.jsp'))">&nbsp;<img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0">&nbsp;</a>
+                                        <a href="javascript:;" onClick="confirmDialogDelete(URLsend('username,password,emp_id,priviledge_id,status,remark,chkstatus','../JSP/CS_005.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                            </tr>
+                        </table>
+                    </div></td>
+                <td class="fcenterright"></td>
+            </tr>
+            <tr bordercolor="0069B3">
+                <td class="ffootleft"></td>
+                <td  class="ffootcenter" colspan="2"></td>
+                <td class="ffootright"></td>
+            </tr>
+        </table>
+    </body>
+    <script language="javascript">
+        function getStatus(){
+            if(document.getElementById("radio1").checked){
+                document.getElementById("status").value = 0;
+            }else if((document.getElementById("radio2").checked)){
+                document.getElementById("status").value = 1;
+            }
+        }
+    </script>
+</html>

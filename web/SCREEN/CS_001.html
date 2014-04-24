@@ -1,0 +1,149 @@
+<!-- From CGC_ERP
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+    <!-- calendar stylesheet -->
+    <link rel="stylesheet" type="text/css" media="all" href="../JS/jscalendar/skins/aqua/aqua.css" title="Aua" />
+    <!-- main calendar program -->
+    <script type="text/javascript" src="../JS/jscalendar/calendar.js"></script>
+    <!-- language for the calendar -->
+    <script type='text/javascript' src='../JS/jscalendar/lang/calendar-th.js'></script>
+    <!-- the following script defines the Calendar.setup helper function, which makes
+           adding a calendar a matter of 1 or 2 lines of code. -->
+    <script type="text/javascript" src="../JS/jscalendar/calendar-setup.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    </head>
+
+    <body onunload="closepopup()">
+        <div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+        <div>
+            <table  cellpadding="0"  cellspacing="0">
+                <tr>
+                    <td class="ftopleft"></td>
+                    <td class="ftopcenter" colspan="2">หน้าจอการทำงาน&nbsp;(CS_001)</td>
+                    <td class="ftopright"></td>
+                </tr>
+                <tr>
+                    <td class="fcenterleft"></td>
+                    <td  colspan="2" class="fcentercenter">
+                        <div align="center">
+                            <table  cellpadding="0" cellspacing="0" >
+                                <tr>
+                                    <td colspan="2"  class="blankspace"></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel"><b>รหัสหน้าจอ*</b>&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='screen_id' id="screen_id" size='10' value='' />&nbsp;<a href="javascript:openBrWindow('Vscreen',1,'Serch_Config.jsp')"><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle'></a>&nbsp;&nbsp;
+                                        <input type='text' name='name_t_screen' id="name_t_screen" size='30' value='' />                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">รหัส Process*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='process_id' id="process_id" size='10' value='' readonly/>&nbsp;<a href=javascript:openBrWindow('Process',1,'Serch_Config.jsp');><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' ></a>&nbsp;&nbsp;
+                                        <input type='text' name='name_t_process' id="name_t_process" size='30' value='' />                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">รหัสแผนก*&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='dept_id' id="dept_id" size='10' value='' readonly/>&nbsp;<a href=javascript:openBrWindow('Department',1,'Serch_Config.jsp');><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle'></a>&nbsp;&nbsp;
+                                        <input type='text' name='name_t_dept' id="name_t_dept" size='30' value='' />                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">หมายเลขเอกสาร&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='iso_no' id="iso_no" size='30' value='' />                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">วันที่บังคับใช้&nbsp;</td>
+                                    <td class="columnobject">
+                                        <p>
+                                            <input type='text' name='effective_date' id="effective_date" size='10' value='' readonly/>
+                                            &nbsp;<a id='date_1' href="javascript:;"><img name='IMAGE4' src='../IMAGES/BUTTON/MAIN/CALENDAR20.gif' border='0' align='absmiddle'></a>
+                                            <script type='text/javascript'>Calendar.setup({inputField:'effective_date',ifFormat:'%d-%m-%Y',showsTime:false,button:'date_1',singleClick:true,step:1});</script>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">QC Check&nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type="hidden" name='qc_check' id="qc_check" value=''/><input type='checkbox' name='chkbox_qc' id="chkbox_qc"/>QC Check                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">หมายเหตุ&nbsp;</td>
+                                    <td class="columnobject"><textarea name='remark_screen' id="remark_screen" rows='5' cols='40'></textarea></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="columnlabel">Email From : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='email_from' id="email_from" size='30' value='' />                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="columnlabel">Email To : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='email_to' id="email_to" size='120' value='' />                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="columnlabel">Email Server : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='email_server' id="email_server" size='20' value='' />                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="columnlabel">Email Port : &nbsp;</td>
+                                    <td class="columnobject">
+                                        <input type='text' name='email_port' id="email_port" size='5' value='' />                                    </td>
+                                </tr>                                
+                                
+                                <tr>
+                                    <td colspan='2' class='blankspace'></td>
+                                </tr>
+                                <tr>
+                                    <td colspan='2' class='blankspace'><div align="center">
+                                            <input type="hidden" id="chkNull" value="screen_id,name_t_screen,process_id,dept_id">
+                                            <input type="hidden" id="chkstatus" value="1">
+                                            <a href="javascript:;" onclick="cancelAction()" ><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                            <a href="javascript:;" onkeypress="if(event.keyCode == 113)" onClick="submitPage(1)">&nbsp;<img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0">&nbsp;</a>
+                                            <a href="javascript:;" onClick="submitPage(2)"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                                </tr>
+                            </table>
+                        </div></td>
+                    <td class="fcenterright"></td>
+                </tr>
+                <tr bordercolor="0069B3">
+                    <td class="ffootleft"></td>
+                    <td  class="ffootcenter" colspan="2"></td>
+                    <td class="ffootright"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <script language="javascript">
+        function submitPage(cnt){
+            if (document.getElementById('chkbox_qc').checked){
+                document.getElementById('qc_check').value = 'Y';
+            } else {
+                document.getElementById('qc_check').value = 'N '
+            };
+            if (cnt == 1){
+                confirmDialogSave(URLsend('chkNull,screen_id,name_t_screen,name_t_dept,remark_screen,name_t_process,process_id,dept_id,iso_no,effective_date,qc_check,email_from,email_to,email_server,email_port', '../JSP/CS_001.jsp'));
+            }else {
+                confirmDialogDelete(URLsend('screen_id,name_t_screen,remark_screen,process_id,dept_id,iso_no,effective_date,qc_check,chkstatus', '../JSP/CS_001.jsp'))
+            }
+        }
+    </script>
+</html>

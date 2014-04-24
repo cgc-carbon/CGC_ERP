@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href="../CSS/MENU.css" rel="stylesheet" type="text/css">
+        <link href="../CSS/BT.css" rel="stylesheet" type="text/css">
+        <script language="javascript" src="../JS/myAjaxFramework.js"></script>
+
+    </head>
+    <body onunload="closepopup()">
+        <div id="toolTipLayer" style="position:absolute; visibility: hidden"></div>
+        <div>
+            <table  cellpadding="0"  cellspacing="0">
+                <tr >
+                    <td class="ftopleft"></td>
+                    <td  class="ftopcenter" colspan="2">กลุ่มสินค้า&nbsp;(CS_017)</td>
+                    <td class="ftopright"></td>
+                </tr>
+                <tr >
+                    <td class="fcenterleft"></td>
+                    <td  colspan="2" class="fcentercenter">
+                        <div align="center">
+                            <table  cellpadding="0" cellspacing="0" >
+                                <tr>
+                                    <td colspan="2"  class="blankspace"></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">รหัสกลุ่มสินค้า*</td>
+                                    <td class="columnobject">&nbsp;
+                                        <label>
+                                            <input type="text" name="pgroup_id" id="pgroup_id">
+                                            <a href='javascript:;'><img src='../IMAGES/BUTTON/MAIN/SEARCH20.gif' width='20' height='20' border='0' align='middle' onclick="openBrWindow('mproduct_group', 17, 'Search_Config2.jsp')" ></a>
+                                            <input type="text" name="name_t_pgroup" id="name_t_pgroup">
+                                        </label></td>
+                                </tr>
+                                <tr>
+                                    <td class="columnlabel">หมายเหต</td>
+                                    <td class="columnobject"><label>
+                                            &nbsp;&nbsp;<textarea name="remark_pgroup" id="remark_pgroup" cols="45" rows="5"></textarea>
+                                        </label></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan='2' class='blankspace'><div align="center">
+                                            <a href="javascript:;" onclick="cancelAction()"><img alt=""  src="../IMAGES/BTN_CANCEL_90.png" width="80" height="30" border="0"></a>
+                                            <input type="hidden" id="chkstatus" value="1"/>
+                                            <input type="hidden" id="chkNull" value="pgroup_id,name_t_pgroup">
+                                            <a href="javascript:;" onClick="confirmDialogSave(URLsend('chkNull,pgroup_id,name_t_pgroup,remark_pgroup', '../JSP/CS_017.jsp'))">&nbsp;<img alt=""  src="../IMAGES/BTN_SAVE_90.png" width="80" height="30" border="0">&nbsp;</a>
+                                            <a href="javascript:;" onClick="confirmDialogDelete(URLsend('pgroup_id,name_t_pgroup,remark_pgroup,chkstatus', '../JSP/CS_017.jsp'))"><img alt=""  src="../IMAGES/BTN_DEL_90.png" width="80" height="30" border="0"></a></div></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div></td>
+                    <td class="fcenterright"></td>
+                </tr>
+                <tr bordercolor="0069B3">
+                    <td class="ffootleft"></td>
+                    <td  class="ffootcenter" colspan="2"></td>
+                    <td class="ffootright"></td>
+                </tr>
+            </table>
+        </div>
+        <script language="javascript">
+            <!--
+            var my_window = null;
+            var t;
+            function MM_openBrWindow(theURL,winName,features) { //v2.0
+                if (my_window == null){
+                    my_window = window.open(theURL,winName,features);
+                }else{
+                    closepopup();
+                    my_window = window.open(theURL,winName,features);
+                }
+            }
+            //-->
+        </script>
+    </body>
+</html>
